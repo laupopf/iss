@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+{% if app.user != null %}
+                    {% include 'navbar.html.twig' with {'var':'true', 'user': app.user.email}  %}
+                    
+                    <form action="{{path('pontaj')}}" method="post">
+                        Ore lucrate pe ziua de azi:<BR>
+                                    <input type="text" id="{{app.user.cnp}}" name="pontaj">
+                                    <input type="submit" value="{{'Adauga ore de lucru'}}"/>
+                    </form>
+                    
+                    {{character}}
+                    {% endif %}
+                    
+                    
+{% endblock %}

@@ -1,0 +1,70 @@
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #606468;
+}
+
+li {
+    float: left;
+}
+.cals{
+     color: white;
+     font-weight: bold;
+     display: inline-block;
+     float:right;
+     padding: 14px 16px;
+}
+li a {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+    font-weight: bold;
+}
+</style>
+
+<div class="navbar navbar-inverse navbar-static-top"> 
+    <div class="navbar-inner">
+        <ul class="nav">
+                        <li  id="2">
+                <a href="{{ path('welcome') }}"><img src="{{ asset('imgs/logo_minus+.png') }}" height="30" width="90"    /></a>
+            </li>
+            {% if var == 'false' %}
+                <li><a class="brand" href="{{ path('login') }}">Login</a>
+                <li class="active"><a href="{{ path('register') }}">Register</a></li>
+            {% endif %}
+
+           
+
+            
+
+            {% if var == 'true' %}
+                <li class="active"><a href="{{ path('articol') }}">Articole</a></li>
+            
+               
+            {% endif %}
+
+            
+           
+            {% if var == 'true' %}
+                <li class="active"><a href="{{ path('logout') }}">Logout</a></li>
+            {% endif %}
+            {% if var == "true"%}
+            <li class = "cals">
+                
+              
+                
+            </li>
+            {% endif %}
+            </ul>
+    </div>
+</div>

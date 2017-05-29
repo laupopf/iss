@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css" />
+{% endblock %}
+
+<div id="login">
+          <div class="panel-heading">Register</div>
+          <div class="panel-body">
+            {{ form_start(form) }}
+            
+                  {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+               
+
+            
+                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+              
+            
+             
+                
+              
+            
+           
+                {{ form_row(form.role, {'attr': {'class': 'form-control'}}) }}
+             
+            
+                {{ form_row(form.phoneNumber, {'attr': {'class': 'form-control'}}) }}
+              
+             
+                
+                
+                {{ form_row(form.surename, {'attr': {'class': 'form-control'}}) }}
+              
+
+
+            
+                {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+            
+
+            
+                {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+             
+            <div class="col-md-6 col-md-offset-4">
+            <input type="submit" value="Login">
+        </div>
+            {{ form_end(form) }}
+          </div>
+        </div>
+{% endblock %}

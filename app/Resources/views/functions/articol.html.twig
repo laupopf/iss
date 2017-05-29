@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+{% if app.user != null %}
+                    {% include 'navbar.html.twig' with {'var':'true', 'user': app.user.email}  %}
+                    
+                    
+                    <table class="table" style=" border: 1px solid white; text-align: center; border-collapse: collapse;">
+                        <tr style=" border: 1px solid white; text-align: center;">
+                                <th>Autor</th>
+                                <th>Titlu</th>
+                                <th>Domeniu</th>
+                                <th>Cuvinte Cheie</th>
+                                <th>Link</th>
+                                
+                                
+                            </tr>
+                   {% for key, item in character %}
+                        <tr style=" border: 1px solid white; text-align: center; border-collapse: collapse;">
+                                <td>{{ item.autor }}</td>
+                                <td>{{ item.titlu }}</td>
+                                <td>{{ item.domeniu }}</td>
+                                <td>{{ item.keywords }}</td>
+                                
+                                <td><a href=''>deschide document</a> </td>
+                                <td>{% if (app.user.role == 'ROLE_RW' or app.user.role == 'ROLE_ADMIN')%}
+                        Evalueaza
+                        <form action="{{path('eval')}}" method="post">
+                                    
+                                    <input type='hidden' name='titlu' value='{{item.titlu}}'>
+                                    <input type='checkbox' name='eval' value='1'>1
+                                    <input type='checkbox' name='eval' value='2'>2
+                                    <input type='checkbox' name='eval' value='3'>3
+                                    <input type='checkbox' name='eval' value='4'>4
+                                    <input type='checkbox' name='eval' value='5'>5
+                                    <input type="submit" value="{{'Adauga evaluare'}}"/>
+                        </form></td>
+                    {% endif %}
+                                
+                            </tr>
+                   {%endfor%}
+                    </table>
+                    {% endif %}
+                    
+                    
+{% endblock %}

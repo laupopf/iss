@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css" />
+{% endblock %}
+
+<div id="login">
+    <img src="{{ asset('imgs/logo_minus+.png') }}" height="200" width="370"  />
+    <form class="form-login" role="form" method="POST" action="{{ path('security_login_check') }}">
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error.messageKey|trans(error.messageData) }}
+            </div>
+        {% endif %}
+        <span class="fontawesome-user"></span>  
+        <input type="text" id="email" type="email" class="form-control" name="_email" value="{{ last_username }}">
+        <span class="fontawesome-lock"></span>            
+        <input id="password" type="password" class="form-control" name="_password">
+        <div class="col-md-6 col-md-offset-4">
+            <input type="submit" value="Login">
+        </div>
+                        
+    </form>
+</div>
+ 
+{% endblock %}
